@@ -49,6 +49,7 @@ Do not use the draw.io name or any draw.io logo in a way that suggests you are J
 
 Do not use any draw.io logo as the icon or logo for your business/organization, offering, project, domain name, social media account, or website.
 
+
 Do not modify the permitted draw.io logos, including changing the color, dimensions, or combining with other words or design elements.
 
 Do not use JGraph trademarks or logos without JGraph’s prior written permission.
