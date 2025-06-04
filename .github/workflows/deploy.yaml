@@ -1,0 +1,37 @@
+name: Deploy drawio to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+
+      - name: Build WAR file
+        run: |
+          cd etc/build
+          ant war
+
+      - name: Extract WAR content
+        run: |
+          mkdir webapp-output
+          unzip build/draw.war -d webapp-output
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: webapp-output
+          publish_branch: gh-pages
